@@ -1,8 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <link href="../node_modules/mocha/mocha.css" rel="stylesheet" />
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script>mocha.setup('tdd')</script>
   </head>
   <body>
     <script type="module" src="./lit-html_test.js"></script>
@@ -21,14 +24,9 @@
     <script type="module" src="./directives/unsafe-html_test.js"></script>
     <script type="module" src="./directives/when_test.js"></script>
     <script type="module">
-      WCT.loadSuites([
-        'shady.html',
-        'shady.html?shadydom=true',
-        'shady.html?shadydom=true&shimscssproperties=true',
-        'shady-apply.html',
-        'shady-apply.html?shadydom=true',
-        'shady-apply.html?shadydom=true&shimscssproperties=true',
-      ]);
+      mocha.checkLeaks();
+      mocha.run();
     </script>
+    <div id="mocha"></div>
   </body>
 </html>

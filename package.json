@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "dev": "browser-sync start --config browsersync.config.js",
     "checksize": "rollup -c ; rm lit-html.bundled.js",
     "gen-docs": "typedoc --readme none --mode modules --excludeNotExported --excludePrivate --exclude **/*_test.ts --out ./docs/api ./src",
     "test": "npm run build && npm run lint && wct --npm",
@@ -30,6 +31,7 @@
   },
   "author": "The Polymer Authors",
   "devDependencies": {
+    "browser-sync": "^2.24.7",
     "@types/chai": "^4.1.0",
     "@types/mocha": "^5.2.0",
     "@webcomponents/webcomponentsjs": "^2.0.4",
